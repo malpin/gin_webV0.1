@@ -1,0 +1,27 @@
+app:
+  name: "gin_webapp"
+  mode: "dev"
+  port: 8081
+
+log:
+  level: "debug"
+  filename: "gin_webapp.log"
+  max_size: 200
+  max_age: 30
+  max_backups: 3
+
+mysql:
+  host: "127.0.0.1"
+  port: 3306
+  user: "root"
+  password: "root"
+  dbname: "goweb"
+  max_open_conns: 10
+  max_idle_conns: 5
+
+redis:
+  host: "42.192.126.60"
+  port: 6379
+  db: 0
+  password: "Malpin666"
+

@@ -1,0 +1,7 @@
+{"level":"DEBUG","time":"2022-06-30T16:02:19.529+0800","caller":"gin_web/main.go:33","msg":"logger init success"}
+{"level":"ERROR","time":"2022-06-30T16:02:21.896+0800","caller":"mysql/mysql.go:26","msg":"connect DB falled ,","error":"dial tcp: lookup 0: no such host"}
+{"level":"DEBUG","time":"2022-06-30T16:02:54.282+0800","caller":"gin_web/main.go:33","msg":"logger init success"}
+{"level":"ERROR","time":"2022-06-30T16:02:56.595+0800","caller":"mysql/mysql.go:26","msg":"connect DB falled ,","error":"dial tcp: lookup 0: no such host"}
+{"level":"DEBUG","time":"2022-06-30T16:05:30.562+0800","caller":"gin_web/main.go:33","msg":"logger init success"}
+{"level":"ERROR","time":"2022-06-30T16:05:32.887+0800","caller":"mysql/mysql.go:26","msg":"connect DB falled ,","error":"dial tcp: lookup 0: no such host"}
+{"level":"DEBUG","time":"2022-06-30T16:07:10.018+0800","caller":"gin_web/main.go:33","msg":"logger init success"}
