@@ -42,21 +42,22 @@ type RedisConfig struct {
 }
 
 //viper使用配置管理
-func Init() (err error) {
+func Init(path string) (err error) {
 	//方式1:直接指定配置文件路径,
 	//相对路径,相对执行的可执行文件的相对路径
-	//viper.SetConfigFile("./conf/config.yaml")
+	viper.SetConfigFile(path)
 	//相对路径:
 	//viper.SetConfigFile("系统绝对路径")
 
 	//方式2:指定配置文件和配置文件的位置,viper自行寻找可用配置文件
 	//配置文件名不需要带后缀
 	//配置文件位置可配置多个
-	viper.SetConfigName("config") //指定配置文件名称(不需要带后缀)
-	viper.AddConfigPath(".")      //指定查找配置文件的路径
+	//viper.SetConfigName("config") //指定配置文件名称(不需要带后缀)
+	//viper.AddConfigPath(".")      //指定查找配置文件的路径
 
 	//基本上是配合远程配置中心使用,告诉viper当前的数据使用什么格式解析
 	//viper.SetConfigType("yaml") //指定配置文件的类型(专用来从远程获取配置指定后缀)
+
 	err = viper.ReadInConfig() //读取配置信息
 	if err != nil {
 		fmt.Printf("viper.ReadInConfig() failed ,err: %v \n", err)

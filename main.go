@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"flag"
 	"fmt"
 	"gin_web/dao/mysql"
 	"gin_web/dao/redis"
@@ -19,10 +20,17 @@ import (
 )
 
 func main() {
-	//1,加载配置文件
-	if err := settings.Init(); err != nil {
-		fmt.Printf("configuration file err:%v\n", err)
+	//使用flag包获取命令行参数得到配置文件地址
+	//定义命令行参数方式1
+	var path string
+	flag.StringVar(&path, "path", "./config.yaml", "配置文件的路径")
+	//解析命令行参数
+	flag.Parse()
+	fmt.Println(path)
 
+	//1,加载配置文件
+	if err := settings.Init(path); err != nil {
+		fmt.Printf("configuration file err:%v\n", err)
 		return
 	}
 
