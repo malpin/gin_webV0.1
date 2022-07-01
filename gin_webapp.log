@@ -5,3 +5,13 @@
 {"level":"DEBUG","time":"2022-06-30T16:05:30.562+0800","caller":"gin_web/main.go:33","msg":"logger init success"}
 {"level":"ERROR","time":"2022-06-30T16:05:32.887+0800","caller":"mysql/mysql.go:26","msg":"connect DB falled ,","error":"dial tcp: lookup 0: no such host"}
 {"level":"DEBUG","time":"2022-06-30T16:07:10.018+0800","caller":"gin_web/main.go:33","msg":"logger init success"}
+{"level":"DEBUG","time":"2022-07-01T13:25:14.091+0800","caller":"gin_web/main.go:36","msg":"logger init success"}
+{"level":"DEBUG","time":"2022-07-01T13:26:16.219+0800","caller":"gin_web/main.go:36","msg":"logger init success"}
+{"level":"DEBUG","time":"2022-07-01T13:29:12.302+0800","caller":"gin_web/main.go:36","msg":"logger init success"}
+{"level":"FATAL","time":"2022-07-01T13:29:22.518+0800","caller":"gin_web/main.go:82","msg":"Server exiting"}
+2022-07-01T13:37:55.246+0800	DEBUG	gin_web/main.go:36	logger init success
+2022-07-01T13:38:14.933+0800	FATAL	gin_web/main.go:82	Server exiting
+2022-07-01T13:38:56.643+0800	DEBUG	gin_web/main.go:36	logger init success
+2022-07-01T13:39:09.313+0800	FATAL	gin_web/main.go:82	Server exiting
+2022-07-01T14:25:22.372+0800	DEBUG	gin_web/main.go:36	logger init success
+2022-07-01T14:25:25.740+0800	FATAL	gin_web/main.go:82	Server exiting

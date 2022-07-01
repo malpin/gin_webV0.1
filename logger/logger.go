@@ -1,7 +1,7 @@
 package logger
 
 import (
-	"github.com/spf13/viper"
+	"gin_web/settings"
 	"net"
 	"net/http"
 	"net/http/httputil"
@@ -17,22 +17,24 @@ import (
 )
 
 // InitLogger 初始化Logger
-func Init() (err error) {
+func Init(config *settings.LogConfig) (err error) {
+
 	writeSyncer := getLogWriter(
 		////viper使用配置管理 获取配置文件中数据
-		viper.GetString("log.filename"),
-		viper.GetInt("log.max_size"),
-		viper.GetInt("log.max_backups"),
-		viper.GetInt("log.max_age"))
+		config.Filename,
+		config.MaxSize,
+		config.MaxBackups,
+		config.MaxAge,
+	)
 
 	encoder := getEncoder()
 	var l = new(zapcore.Level) //日志级别
-	err = l.UnmarshalText([]byte(viper.GetString("log.level")))
+	err = l.UnmarshalText([]byte(config.Level))
 	if err != nil {
 		return
 	}
 	core := zapcore.NewCore(encoder, writeSyncer, l)
-
+	//添加将调用函数信息记录到日志中的功能
 	lg := zap.New(core, zap.AddCaller())
 	zap.ReplaceGlobals(lg) // 替换zap包中全局的logger实例，后续在其他包中只需使用zap.L()调用即可
 	return
@@ -45,7 +47,9 @@ func getEncoder() zapcore.Encoder {
 	encoderConfig.EncodeLevel = zapcore.CapitalLevelEncoder
 	encoderConfig.EncodeDuration = zapcore.SecondsDurationEncoder
 	encoderConfig.EncodeCaller = zapcore.ShortCallerEncoder
-	return zapcore.NewJSONEncoder(encoderConfig)
+	//return zapcore.NewJSONEncoder(encoderConfig)
+	return zapcore.NewConsoleEncoder(encoderConfig)
+
 }
 
 func getLogWriter(filename string, maxSize, maxBackup, maxAge int) zapcore.WriteSyncer {

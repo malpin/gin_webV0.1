@@ -22,24 +22,27 @@ func main() {
 	//1,加载配置文件
 	if err := settings.Init(); err != nil {
 		fmt.Printf("configuration file err:%v\n", err)
+
 		return
 	}
+
 	//2.使用zap记录相关日志
-	if err := logger.Init(); err != nil {
+	//settings.Conf.LogConfig 来自配置文件初始化时候的全局变量,这个变量用了结构体保存配置,在配置变化时候会重新改变结构体
+	if err := logger.Init(settings.Conf.LogConfig); err != nil {
 		fmt.Printf("init logger failed ,err:%v\n", err)
 		return
 	}
 	defer zap.L().Sync() //Sync 调用底层Core的 Sync 方法，刷新所有缓冲的日志条目。应用程序应注意在退出之前调用 Sync。
 	zap.L().Debug("logger init success")
 	//3.初始化mysql
-	if err := mysql.Init(); err != nil {
+	if err := mysql.Init(settings.Conf.MysqlConfig); err != nil {
 		fmt.Printf("init mysql failed,err:%v\n", err)
 		return
 	}
 	defer mysql.Close()
 
 	//4.初始化redis连接
-	if err := redis.Init(); err != nil {
+	if err := redis.Init(settings.Conf.RedisConfig); err != nil {
 		fmt.Printf("init redis failed,err:%v\n", err)
 		return
 	}

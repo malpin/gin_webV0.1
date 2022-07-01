@@ -1,15 +1,13 @@
-app:
-  name: "gin_webapp"
-  mode: "dev"
-  port: 8081
-
+name: "gin_webapp"
+mode: "dev"
+port: 8081
+version: "v0.1"
 log:
   level: "debug"
   filename: "gin_webapp.log"
   max_size: 200
   max_age: 30
   max_backups: 3
-
 mysql:
   host: "127.0.0.1"
   port: 3306
@@ -18,7 +16,6 @@ mysql:
   dbname: "goweb"
   max_open_conns: 10
   max_idle_conns: 5
-
 redis:
   host: "42.192.126.60"
   port: 6379

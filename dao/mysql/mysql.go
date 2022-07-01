@@ -2,6 +2,7 @@ package mysql
 
 import (
 	"fmt"
+	"gin_web/settings"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
 	"github.com/spf13/viper"
@@ -10,14 +11,14 @@ import (
 
 var db *sqlx.DB
 
-func Init() (err error) {
+func Init(config *settings.MysqlConfig) (err error) {
 
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=True",
-		viper.GetString("mysql.user"),
-		viper.GetString("mysql.password"),
-		viper.GetString("mysql.host"),
-		viper.GetInt("mysql.port"),
-		viper.GetString("mysql.dbname"),
+		config.User,
+		config.Password,
+		config.Host,
+		config.Port,
+		config.Dbname,
 	)
 	// 不会校验账号密码是否正确
 	// 注意！！！这里不要使用:=，我们是给全局变量赋值，然后在main函数中使用全局变量db
