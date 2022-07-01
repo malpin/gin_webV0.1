@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"gin_web/controller"
 	"gin_web/logger"
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -14,5 +15,6 @@ func Setup() *gin.Engine {
 		c.String(http.StatusOK, "ok")
 	})
 
+	r.POST("/SignUp", controller.SignUp)
 	return r
 }
