@@ -22,3 +22,6 @@
 2022-07-01T15:14:09.843+0800	DEBUG	gin_web/main.go:44	logger init success
 2022-07-01T15:14:44.434+0800	DEBUG	gin_web/main.go:44	logger init success
 2022-07-01T15:14:47.412+0800	FATAL	gin_web/main.go:90	Server exiting
+2022-07-01T16:38:50.083+0800	DEBUG	gin_web/main.go:43	logger init success
+2022-07-01T16:41:41.007+0800	DEBUG	gin_web/main.go:43	logger init success
+2022-07-01T16:41:46.041+0800	FATAL	gin_web/main.go:94	Server exiting

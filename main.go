@@ -9,6 +9,7 @@ import (
 	"gin_web/logger"
 	"gin_web/routes"
 	"gin_web/settings"
+	"gin_web/tool"
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
 	"log"
@@ -26,8 +27,6 @@ func main() {
 	flag.StringVar(&path, "path", "./config.yaml", "配置文件的路径")
 	//解析命令行参数
 	flag.Parse()
-	fmt.Println(path)
-
 	//1,加载配置文件
 	if err := settings.Init(path); err != nil {
 		fmt.Printf("configuration file err:%v\n", err)
@@ -48,13 +47,18 @@ func main() {
 		return
 	}
 	defer mysql.Close()
-
 	//4.初始化redis连接
 	if err := redis.Init(settings.Conf.RedisConfig); err != nil {
 		fmt.Printf("init redis failed,err:%v\n", err)
 		return
 	}
 	defer redis.Close()
+
+	//初始化了一个id生成器
+	if err := tool.Init(settings.Conf.StartTime, settings.Conf.MachineID); err != nil {
+		fmt.Printf("Init snowflake failed,err:%v\n", err)
+		return
+	}
 
 	//5.注册路由
 	router := routes.Setup()
