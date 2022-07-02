@@ -13,16 +13,16 @@ func AddUser(user *model.User) (int64, error) {
 	sql := "insert into user(user_id,username,password,create_time,update_time) values(?,?,?,?,?)"
 	result, err := mysql.MysqlDB.Exec(sql, user.UserId, user.Username, user.Password, user.CreateTime, user.UpdateTime)
 	if err != nil {
-		zap.L().Error("AddUser 添加用户执行 失败了", zap.Error(err))
+		zap.L().Error("userDao AddUser 添加用户执行 失败了", zap.Error(err))
 		return -1, err
 	}
 	//插入成功会返回自增的id
 	id, err := result.LastInsertId()
 	if err != nil {
-		zap.L().Error(fmt.Sprintf("AddUser 添加用户 失败了 ,用户id为:%d", user.UserId), zap.Error(err))
+		zap.L().Error(fmt.Sprintf("userDao AddUser 添加用户 失败了 ,用户id为:%d", user.UserId), zap.Error(err))
 		return -1, err
 	}
-	zap.L().Debug(fmt.Sprintf("AddUser 添加用户 成功了 ,用户id为:%d", user.UserId), zap.Error(err))
+	zap.L().Debug(fmt.Sprintf("userDao AddUser 添加用户 成功了 ,用户id为:%d", user.UserId), zap.Error(err))
 	return id, nil
 }
 
@@ -42,7 +42,7 @@ func FandUserByName(username string) error {
 	var count int
 	err := mysql.MysqlDB.Get(&count, sql, username)
 	if err != nil {
-		zap.L().Error("FandUserByName 根据用户名查找用户是否存在 查询失败", zap.Error(err))
+		zap.L().Error("userDao FandUserByName 根据用户名查找用户是否存在 查询失败", zap.Error(err))
 		return err
 	}
 	if count > 0 {

@@ -151,3 +151,63 @@
 2022-07-02T17:06:23.572+0800	ERROR	controller/userController.go:36	ervice SingUp error 添加失败了	{"error": "用户存在了"}
 2022-07-02T17:06:23.572+0800	INFO	logger/logger.go:87	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0028202}
 2022-07-02T17:06:31.750+0800	FATAL	gin_web/main.go:98	Server exiting
+2022-07-02T21:34:25.434+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T21:34:33.866+0800	DEBUG	userDao/user.go:25	AddUser 添加用户 成功了 ,用户id为:567379629182976
+2022-07-02T21:34:33.867+0800	INFO	logger/logger.go:87	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.1968984}
+2022-07-02T21:35:23.129+0800	FATAL	gin_web/main.go:98	Server exiting
+2022-07-02T21:35:26.896+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T21:35:31.870+0800	DEBUG	userDao/user.go:25	AddUser 添加用户 成功了 ,用户id为:567622982701056
+2022-07-02T21:35:31.871+0800	INFO	logger/logger.go:87	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0067016}
+2022-07-02T21:36:47.508+0800	FATAL	gin_web/main.go:98	Server exiting
+2022-07-02T21:36:50.555+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T21:36:59.149+0800	ERROR	controller/userController.go:38	ervice SingUp error 添加失败了	{"error": "用户存在了"}
+2022-07-02T21:36:59.150+0800	INFO	logger/logger.go:87	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0167983}
+2022-07-02T21:37:03.493+0800	DEBUG	userDao/user.go:25	AddUser 添加用户 成功了 ,用户id为:568007273222144
+2022-07-02T21:37:03.493+0800	INFO	logger/logger.go:87	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0062996}
+2022-07-02T21:40:48.658+0800	FATAL	gin_web/main.go:98	Server exiting
+2022-07-02T21:46:08.570+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T21:46:18.469+0800	DEBUG	userDao/user.go:25	AddUser 添加用户 成功了 ,用户id为:570335015473152
+2022-07-02T21:46:18.469+0800	INFO	logger/logger.go:87	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0075636}
+2022-07-02T21:48:55.772+0800	FATAL	gin_web/main.go:98	Server exiting
+2022-07-02T21:48:59.508+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T21:49:10.495+0800	DEBUG	userDao/user.go:25	AddUser 添加用户 成功了 ,用户id为:571056544813056
+2022-07-02T21:49:10.496+0800	INFO	logger/logger.go:87	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0069498}
+2022-07-02T21:52:08.193+0800	FATAL	gin_web/main.go:98	Server exiting
+2022-07-02T21:52:12.013+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T21:52:21.486+0800	DEBUG	userDao/user.go:25	AddUser 添加用户 成功了 ,用户id为:571857619128320
+2022-07-02T21:52:21.487+0800	INFO	logger/logger.go:87	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0067071}
+2022-07-02T21:53:26.618+0800	FATAL	gin_web/main.go:98	Server exiting
+2022-07-02T21:53:29.827+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T21:53:38.286+0800	DEBUG	userDao/user.go:25	AddUser 添加用户 成功了 ,用户id为:572178999283712
+2022-07-02T21:53:38.286+0800	INFO	logger/logger.go:87	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.1830816}
+2022-07-02T21:53:42.105+0800	ERROR	controller/userController.go:38	ervice SingUp error 添加失败了	{"error": "用户存在了"}
+2022-07-02T21:53:42.105+0800	INFO	logger/logger.go:87	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0019538}
+2022-07-02T21:55:11.720+0800	FATAL	gin_web/main.go:98	Server exiting
+2022-07-02T21:55:15.671+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T21:55:20.677+0800	DEBUG	userDao/user.go:25	AddUser 添加用户 成功了 ,用户id为:572609196462080
+2022-07-02T21:55:20.677+0800	INFO	logger/logger.go:87	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0065136}
+2022-07-02T22:16:25.878+0800	FATAL	gin_web/main.go:98	Server exiting
+2022-07-02T22:16:29.657+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T22:16:37.028+0800	DEBUG	userDao/user.go:25	AddUser 添加用户 成功了 ,用户id为:577962596372480
+2022-07-02T22:16:37.028+0800	INFO	logger/logger.go:87	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0082966}
+2022-07-02T22:17:42.970+0800	FATAL	gin_web/main.go:98	Server exiting
+2022-07-02T22:17:55.128+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T22:17:59.958+0800	ERROR	controller/userController.go:38	ervice SingUp error 添加失败了	{"error": "用户存在了"}
+2022-07-02T22:17:59.960+0800	INFO	logger/logger.go:87	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0085314}
+2022-07-02T22:18:08.868+0800	DEBUG	userDao/user.go:25	AddUser 添加用户 成功了 ,用户id为:578347809640448
+2022-07-02T22:18:08.869+0800	INFO	logger/logger.go:87	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0061871}
+2022-07-02T22:18:15.908+0800	FATAL	gin_web/main.go:98	Server exiting
+2022-07-02T22:42:39.426+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T22:42:46.143+0800	ERROR	controller/userController.go:33	ervice SingUp error 添加失败了	{"error": "用户存在了"}
+2022-07-02T22:42:46.144+0800	INFO	logger/logger.go:87	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.003376}
+2022-07-02T22:42:50.336+0800	ERROR	controller/userController.go:33	ervice SingUp error 添加失败了	{"error": "用户存在了"}
+2022-07-02T22:42:50.338+0800	INFO	logger/logger.go:87	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0033952}
+2022-07-02T22:57:27.497+0800	FATAL	gin_web/main.go:98	Server exiting
+2022-07-02T22:57:30.716+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T22:59:12.214+0800	ERROR	controller/userController.go:34	ervice SingUp error 添加失败了	{"error": "用户已经存在了"}
+2022-07-02T22:59:12.219+0800	INFO	logger/logger.go:87	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0105567}
+2022-07-02T22:59:24.433+0800	FATAL	gin_web/main.go:98	Server exiting
+2022-07-02T22:59:27.489+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T22:59:29.456+0800	ERROR	controller/userController.go:34	ervice SingUp error 添加失败了	{"error": "用户已经存在了"}
+2022-07-02T22:59:29.457+0800	INFO	logger/logger.go:87	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0017625}
+2022-07-02T22:59:33.612+0800	FATAL	gin_web/main.go:98	Server exiting
