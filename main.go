@@ -34,7 +34,7 @@ func main() {
 
 	//2.使用zap记录相关日志
 	//settings.Conf.LogConfig 来自配置文件初始化时候的全局变量,这个变量用了结构体保存配置,在配置变化时候会重新改变结构体
-	if err := logger.Init(settings.Conf.LogConfig); err != nil {
+	if err := logger.Init(settings.Conf.LogConfig, settings.Conf.LogConfig.Mode); err != nil {
 		fmt.Printf("init logger failed ,err:%v\n", err)
 		return
 	}
@@ -65,7 +65,7 @@ func main() {
 	}
 
 	//5.注册路由
-	router := routes.Setup()
+	router := routes.Setup(settings.Conf.Mode)
 	//6.启动服务
 	srv := &http.Server{
 		Addr:    fmt.Sprintf(":%d", settings.Conf.Port),

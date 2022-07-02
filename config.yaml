@@ -1,10 +1,10 @@
 name: "gin_webapp"
-mode: "dev"
 port: 8081
 version: "v0.1"
 start_time: "2022-07-01"
 machineID: 1
 MD5salt: "malpin"
+mode: "dev"
 
 log:
   level: "debug"
@@ -12,6 +12,8 @@ log:
   max_size: 200
   max_age: 30
   max_backups: 3
+  mode: "dev"
+
 mysql:
   host: "127.0.0.1"
   port: 3306

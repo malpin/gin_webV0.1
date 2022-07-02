@@ -136,3 +136,18 @@
 2022-07-02T16:37:19.947+0800	INFO	logger/logger.go:74	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.007979}
 2022-07-02T16:37:23.105+0800	ERROR	controller/userController.go:36	ervice SingUp error 添加失败了	{"error": "用户存在了"}
 2022-07-02T16:37:23.105+0800	INFO	logger/logger.go:74	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0009978}
+2022-07-02T16:44:21.372+0800	FATAL	gin_web/main.go:98	Server exiting
+2022-07-02T16:54:57.630+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T16:55:00.128+0800	ERROR	controller/userController.go:36	ervice SingUp error 添加失败了	{"error": "用户存在了"}
+2022-07-02T16:55:00.129+0800	INFO	logger/logger.go:87	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0058151}
+2022-07-02T16:58:54.126+0800	FATAL	gin_web/main.go:98	Server exiting
+2022-07-02T17:00:36.542+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T17:00:57.258+0800	ERROR	controller/userController.go:36	ervice SingUp error 添加失败了	{"error": "用户存在了"}
+2022-07-02T17:00:57.258+0800	INFO	logger/logger.go:87	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0028233}
+2022-07-02T17:01:11.898+0800	FATAL	gin_web/main.go:98	Server exiting
+2022-07-02T17:04:50.359+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T17:05:48.357+0800	FATAL	gin_web/main.go:98	Server exiting
+2022-07-02T17:06:16.936+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T17:06:23.572+0800	ERROR	controller/userController.go:36	ervice SingUp error 添加失败了	{"error": "用户存在了"}
+2022-07-02T17:06:23.572+0800	INFO	logger/logger.go:87	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0028202}
+2022-07-02T17:06:31.750+0800	FATAL	gin_web/main.go:98	Server exiting
