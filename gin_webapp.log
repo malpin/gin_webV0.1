@@ -131,3 +131,8 @@
 2022-07-02T16:36:34.104+0800	ERROR	controller/userController.go:36	ervice SingUp error 添加失败了	{"error": "用户存在了"}
 2022-07-02T16:36:34.104+0800	INFO	logger/logger.go:74	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0049857}
 2022-07-02T16:37:11.084+0800	FATAL	gin_web/main.go:98	Server exiting
+2022-07-02T16:37:15.476+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T16:37:19.947+0800	DEBUG	userDao/user.go:25	AddUser 添加用户 成功了 ,用户id为:492578814300160
+2022-07-02T16:37:19.947+0800	INFO	logger/logger.go:74	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.007979}
+2022-07-02T16:37:23.105+0800	ERROR	controller/userController.go:36	ervice SingUp error 添加失败了	{"error": "用户存在了"}
+2022-07-02T16:37:23.105+0800	INFO	logger/logger.go:74	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0009978}
