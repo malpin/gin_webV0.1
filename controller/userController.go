@@ -26,14 +26,23 @@ func SignUp(c *gin.Context) {
 		}
 
 		c.JSON(http.StatusOK, gin.H{
-			"msg": errors.Translate(tool.ValidatorTrans), //翻译错误
+			"msg": errors.Translate(tool.ValidatorTrans), //翻译错误信息
 		})
 		return
 	}
 	//业务处理
-	service.SingUp()
+	userID, err := service.SingUp(p)
+	if err != nil {
+		zap.L().Error("ervice SingUp error 添加失败了", zap.Error(err))
+		//返回
+		c.JSON(http.StatusOK, gin.H{
+			"msg": err.Error(),
+		})
+		return
+	}
 	//返回
 	c.JSON(http.StatusOK, gin.H{
-		"msg": "成功了",
+		"msg":    "添加用户成功了",
+		"userID": userID,
 	})
 }

@@ -95,3 +95,39 @@
 2022-07-02T13:28:46.955+0800	ERROR	controller/userController.go:17	SignUp Parse data error	{"error": "Key: 'ParamsSignUp.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag\nKey: 'ParamsSignUp.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag"}
 2022-07-02T13:28:46.955+0800	INFO	logger/logger.go:74	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0}
 2022-07-02T13:30:43.318+0800	FATAL	gin_web/main.go:98	Server exiting
+2022-07-02T16:19:47.971+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T16:20:20.844+0800	FATAL	userDao/user.go:16	AddUser 添加用户执行 失败了	{"error": "Error 1136: Column count doesn't match value count at row 1"}
+2022-07-02T16:21:10.762+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T16:21:12.480+0800	ERROR	controller/userController.go:17	SignUp Parse data error	{"error": "invalid character '}' looking for beginning of object key string"}
+2022-07-02T16:21:12.481+0800	INFO	logger/logger.go:74	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0008928}
+2022-07-02T16:21:16.618+0800	FATAL	userDao/user.go:16	AddUser 添加用户执行 失败了	{"error": "Error 1136: Column count doesn't match value count at row 1"}
+2022-07-02T16:24:36.030+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T16:24:44.400+0800	FATAL	userDao/user.go:25	AddUser 添加用户 成功了 ,用户id为:489409770164224
+2022-07-02T16:28:07.322+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T16:28:14.575+0800	DEBUG	userDao/user.go:25	AddUser 添加用户 成功了 ,用户id为:490291362533376
+2022-07-02T16:28:14.575+0800	INFO	logger/logger.go:74	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0093975}
+2022-07-02T16:28:21.951+0800	ERROR	controller/userController.go:36	ervice SingUp error 添加失败了	{"error": "用户存在了"}
+2022-07-02T16:28:21.951+0800	INFO	logger/logger.go:74	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0038389}
+2022-07-02T16:28:31.665+0800	ERROR	controller/userController.go:36	ervice SingUp error 添加失败了	{"error": "用户存在了"}
+2022-07-02T16:28:31.665+0800	INFO	logger/logger.go:74	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0013777}
+2022-07-02T16:28:37.488+0800	FATAL	gin_web/main.go:98	Server exiting
+2022-07-02T16:30:58.463+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T16:31:16.712+0800	ERROR	controller/userController.go:36	ervice SingUp error 添加失败了	{"error": "用户存在了"}
+2022-07-02T16:31:16.712+0800	INFO	logger/logger.go:74	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0035695}
+2022-07-02T16:31:51.623+0800	FATAL	gin_web/main.go:98	Server exiting
+2022-07-02T16:31:55.904+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T16:31:58.358+0800	ERROR	controller/userController.go:36	ervice SingUp error 添加失败了	{"error": "用户存在了"}
+2022-07-02T16:31:58.358+0800	INFO	logger/logger.go:74	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0029508}
+2022-07-02T16:33:33.612+0800	FATAL	gin_web/main.go:98	Server exiting
+2022-07-02T16:33:38.309+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T16:33:44.102+0800	ERROR	controller/userController.go:37	ervice SingUp error 添加失败了	{"error": "用户存在了"}
+2022-07-02T16:33:44.102+0800	INFO	logger/logger.go:74	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0019111}
+2022-07-02T16:33:56.447+0800	FATAL	gin_web/main.go:98	Server exiting
+2022-07-02T16:34:00.723+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T16:34:03.902+0800	ERROR	controller/userController.go:36	ervice SingUp error 添加失败了	{"error": "用户存在了"}
+2022-07-02T16:34:03.903+0800	INFO	logger/logger.go:74	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0025291}
+2022-07-02T16:35:33.898+0800	FATAL	gin_web/main.go:98	Server exiting
+2022-07-02T16:36:31.352+0800	DEBUG	gin_web/main.go:42	logger init success
+2022-07-02T16:36:34.104+0800	ERROR	controller/userController.go:36	ervice SingUp error 添加失败了	{"error": "用户存在了"}
+2022-07-02T16:36:34.104+0800	INFO	logger/logger.go:74	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": 0.0049857}
+2022-07-02T16:37:11.084+0800	FATAL	gin_web/main.go:98	Server exiting

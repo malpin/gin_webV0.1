@@ -9,13 +9,13 @@ import (
 var Conf = new(AppConfig) //返回的值是一个指向该类型新分配的零值的指针
 
 type AppConfig struct {
-	Name      string `mapstructure:"name"`
-	Mode      string `mapstructure:"mode"`
-	Version   string `mapstructure:"version"`
-	Port      int    `mapstructure:"port"`
-	StartTime string `mapstructure:"start_time"`
-	MachineID int64  `mapstructure:"machineID"`
-
+	Name         string `mapstructure:"name"`
+	Mode         string `mapstructure:"mode"`
+	Version      string `mapstructure:"version"`
+	Port         int    `mapstructure:"port"`
+	StartTime    string `mapstructure:"start_time"`
+	MachineID    int64  `mapstructure:"machineID"`
+	MD5salt      string `mapstructure:"MD5salt"`
 	*LogConfig   `mapstructure:"log"`
 	*MysqlConfig `mapstructure:"mysql"`
 	*RedisConfig `mapstructure:"redis"`
