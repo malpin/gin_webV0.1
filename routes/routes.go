@@ -15,6 +15,6 @@ func Setup() *gin.Engine {
 		c.String(http.StatusOK, "ok")
 	})
 
-	r.POST("/SignUp", controller.SignUp)
+	r.POST("/signup", controller.SignUp)
 	return r
 }
