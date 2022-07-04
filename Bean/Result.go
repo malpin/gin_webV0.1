@@ -7,7 +7,7 @@ import (
 
 type Result struct {
 	Code ResMsg      `json:"code"`
-	Msg  string      `json:"Msg"`
+	Msg  interface{} `json:"Msg"`
 	Data interface{} `json:"Data"`
 }
 
@@ -47,6 +47,6 @@ func newErrResult(code ResMsg) *Result {
 func newErrWithMsgResult(code ResMsg, msg interface{}) *Result {
 	return &Result{
 		Code: code,
-		Msg:  msg.(string),
+		Msg:  msg,
 	}
 }

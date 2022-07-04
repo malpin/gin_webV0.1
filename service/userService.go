@@ -1,17 +1,11 @@
 package service
 
 import (
-	"errors"
+	"gin_web/Bean"
 	"gin_web/dao/mysql/userDao"
 	"gin_web/model"
 	"gin_web/tool"
 	"time"
-)
-
-var (
-	ErrorUserExist       = errors.New("用户已经存在了")
-	ErrorUserNotExist    = errors.New("用户不存在")
-	ErrorInvalidPassword = errors.New("密码错误")
 )
 
 // SingUp 添加用户
@@ -19,7 +13,7 @@ func SingUp(p model.ParamsSignUp) (int64, error) {
 	//根据用户名查找用户是否存在
 	err := userDao.FandUserByName(p.Username)
 	if err != nil {
-		return -1, ErrorUserExist
+		return -1, Bean.ErrorUserExist
 	}
 	//生成一个id
 	id := tool.GenID()
@@ -30,4 +24,17 @@ func SingUp(p model.ParamsSignUp) (int64, error) {
 		return -1, err
 	}
 	return addUserId, nil
+}
+
+// Login 用户登录
+func Login(p model.ParamsLogin) error {
+	u := model.User{
+		Username: p.Username,
+		Password: tool.Md5(p.Password),
+	}
+	err := userDao.Login(&u)
+	if err != nil {
+		return err
+	}
+	return nil
 }

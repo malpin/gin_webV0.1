@@ -3,9 +3,11 @@ package userDao
 import (
 	"errors"
 	"fmt"
+	"gin_web/Bean"
 	"gin_web/dao/mysql"
 	"gin_web/model"
 	"go.uber.org/zap"
+	"time"
 )
 
 // AddUser 添加用户
@@ -24,6 +26,25 @@ func AddUser(user *model.User) (int64, error) {
 	}
 	zap.L().Debug(fmt.Sprintf("userDao AddUser 添加用户 成功了 ,用户id为:%d", user.UserId), zap.Error(err))
 	return id, nil
+}
+
+// login 用户登录
+func Login(u *model.User) (err error) {
+	p := u.Password
+	var user model.User
+	sql := "select user_id,username,password from user where username=? and password=?"
+	err = mysql.MysqlDB.Get(&user, sql, u.Username, u.Password)
+	if err != nil {
+		zap.L().Debug("userDao Login 用户登录执行 失败了", zap.Error(err))
+		return err
+	}
+	if p != u.Password {
+		zap.L().Debug(fmt.Sprintf("用户id:%d 的用户 在%s时登录失败了", u.UserId, time.Now()), zap.Error(err))
+		return Bean.ErrorInvalidPassword
+	}
+
+	zap.L().Debug(fmt.Sprintf("用户id:%d 的用户 在%s时登录成功了", u.UserId, time.Now()), zap.Error(err))
+	return nil
 }
 
 //根据用户名删除用户

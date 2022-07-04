@@ -35,7 +35,7 @@ var codem = map[ResMsg]string{
 	//登录类错误码
 	ADMIN_USERNAME_EXIST:    "该用户名已存在！",
 	ADMIN_USERNAME_NO_EXIST: "该用户名不存在！",
-	ADMIN_PASSWORD_ERROR:    "密码错误！",
+	ADMIN_PASSWORD_ERROR:    "用户名或密码错误！",
 }
 
 func (c ResMsg) GetMsg() string {
