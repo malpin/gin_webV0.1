@@ -23,7 +23,7 @@ func Setup(mode string) *gin.Engine {
 	r.POST("/login", controller.UserLogin)
 	r.POST("/signup", controller.UserSignUp)
 	r.GET("/ping", tool.JWTAuthMiddleware(), func(c *gin.Context) {
-
+		//测试
 		c.String(http.StatusOK, "pang")
 	})
 
