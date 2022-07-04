@@ -16,6 +16,7 @@ type AppConfig struct {
 	StartTime    string `mapstructure:"start_time"`
 	MachineID    int64  `mapstructure:"machineID"`
 	MD5salt      string `mapstructure:"MD5salt"`
+	MySigningKey string `mapstructure:"mySigningKey"`
 	*LogConfig   `mapstructure:"log"`
 	*MysqlConfig `mapstructure:"mysql"`
 	*RedisConfig `mapstructure:"redis"`

@@ -1,7 +1,6 @@
 package userDao
 
 import (
-	"errors"
 	"fmt"
 	"gin_web/Bean"
 	"gin_web/dao/mysql"
@@ -15,36 +14,36 @@ func AddUser(user *model.User) (int64, error) {
 	sql := "insert into user(user_id,username,password,create_time,update_time) values(?,?,?,?,?)"
 	result, err := mysql.MysqlDB.Exec(sql, user.UserId, user.Username, user.Password, user.CreateTime, user.UpdateTime)
 	if err != nil {
-		zap.L().Error("userDao AddUser 添加用户执行 失败了", zap.Error(err))
+		zap.L().Warn("userDao AddUser 添加用户执行 失败了", zap.Error(err))
 		return -1, err
 	}
 	//插入成功会返回自增的id
 	id, err := result.LastInsertId()
 	if err != nil {
-		zap.L().Error(fmt.Sprintf("userDao AddUser 添加用户 失败了 ,用户id为:%d", user.UserId), zap.Error(err))
+		zap.L().Warn(fmt.Sprintf("userDao AddUser 添加用户 失败了 ,用户id为:%d", user.UserId), zap.Error(err))
 		return -1, err
 	}
-	zap.L().Debug(fmt.Sprintf("userDao AddUser 添加用户 成功了 ,用户id为:%d", user.UserId), zap.Error(err))
+	zap.L().Info(fmt.Sprintf("userDao AddUser 添加用户 成功了 ,用户id为:%d", user.UserId), zap.Error(err))
 	return id, nil
 }
 
 // login 用户登录
-func Login(u *model.User) (err error) {
-	p := u.Password
-	var user model.User
-	sql := "select user_id,username,password from user where username=? and password=?"
-	err = mysql.MysqlDB.Get(&user, sql, u.Username, u.Password)
+func Login(u *model.User) (user model.User, err error) {
+	sql := "select user_id,username,password from user where username=?"
+	err = mysql.MysqlDB.Get(&user, sql, u.Username)
 	if err != nil {
-		zap.L().Debug("userDao Login 用户登录执行 失败了", zap.Error(err))
-		return err
+		zap.L().Warn(fmt.Sprintf("用户id:%d 的用户 在%s时登录 查询数据库失败了", u.UserId, time.Now()), zap.Error(err))
+		user.Password = ""
+		return user, Bean.SYSTEM_BUSY.MarkError
 	}
-	if p != u.Password {
-		zap.L().Debug(fmt.Sprintf("用户id:%d 的用户 在%s时登录失败了", u.UserId, time.Now()), zap.Error(err))
-		return Bean.ErrorInvalidPassword
+	if user.Password != u.Password {
+		zap.L().Warn(fmt.Sprintf("用户id:%d 的用户 在%s时登录,密码错误了", u.UserId, time.Now()), zap.Error(err))
+		user.Password = ""
+		return user, Bean.PASSWORD_ERROR.MarkError
 	}
-
-	zap.L().Debug(fmt.Sprintf("用户id:%d 的用户 在%s时登录成功了", u.UserId, time.Now()), zap.Error(err))
-	return nil
+	zap.L().Info(fmt.Sprintf("用户id:%d 的用户 在%s时登录成功了", u.UserId, time.Now()), zap.Error(err))
+	user.Password = ""
+	return user, nil
 }
 
 //根据用户名删除用户
@@ -67,7 +66,7 @@ func FandUserByName(username string) error {
 		return err
 	}
 	if count > 0 {
-		return errors.New("用户存在了")
+		return Bean.USERNAME_EXIST.MarkError
 	}
 	return nil
 }

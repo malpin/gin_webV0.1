@@ -5,7 +5,7 @@ start_time: "2022-07-01"
 machineID: 1
 MD5salt: "malpin"
 mode: "dev"
-
+mySigningKey: "malpin"
 log:
   level: "debug"
   filename: "gin_webapp.log"

@@ -1,43 +1,28 @@
 package Bean
 
-type ResMsg int64
+import "errors"
 
-const (
-	SUCCESS                 ResMsg = 0
-	DATA_ERROR              ResMsg = -1
-	SYSTEM_BUSY             ResMsg = -2
-	CPACHA_EMPTY            ResMsg = -3
-	SESSION_EXPIRED         ResMsg = -4
-	CPACHA_ERROR            ResMsg = -5
-	USER_SESSION_EXPIRED    ResMsg = -6
-	ADMIN_USERNAME_EMPTY    ResMsg = -7
-	ADMIN_PASSWORD_EMPTY    ResMsg = -8
-	ADMIN_USERNAME_NO_EXIST ResMsg = -9
-	ADMIN_USERNAME_EXIST    ResMsg = -10
-	ADMIN_PASSWORD_ERROR    ResMsg = -11
-)
-
-var codem = map[ResMsg]string{
-	//通用错误码定义
-	//处理成功消息码
-	SUCCESS: "success",
-	//非法数据错误码
-	DATA_ERROR:           "非法数据",
-	SYSTEM_BUSY:          "系统繁忙",
-	CPACHA_EMPTY:         "验证码不能为空！",
-	CPACHA_ERROR:         "验证码错误！",
-	SESSION_EXPIRED:      "会话已失效，请刷新页面重试！",
-	USER_SESSION_EXPIRED: "还未登录或会话失效，请重新登录！",
-	//后台管理类错误码
-	//用户管理类错误
-	ADMIN_USERNAME_EMPTY: "用户名不能为空！",
-	ADMIN_PASSWORD_EMPTY: "密码不能为空！",
-	//登录类错误码
-	ADMIN_USERNAME_EXIST:    "该用户名已存在！",
-	ADMIN_USERNAME_NO_EXIST: "该用户名不存在！",
-	ADMIN_PASSWORD_ERROR:    "用户名或密码错误！",
+type CodeMsg struct {
+	code      int64
+	msg       interface{}
+	MarkError error
 }
 
-func (c ResMsg) GetMsg() string {
-	return codem[c]
-}
+// 通用错误码定义
+// 处理成功消息码
+var SUCCESS = CodeMsg{0, "success", nil}
+
+//非法数据错误码
+var DATA_ERROR = CodeMsg{0, "非法数据", errors.New("非法的数据")}
+var SYSTEM_BUSY = CodeMsg{0, "系统繁忙", errors.New("系统繁忙")}
+var CPACHA_EMPTY = CodeMsg{0, "验证码不能为空", errors.New("验证码不能为空")}
+var CPACHA_ERROR = CodeMsg{0, "验证码错误", errors.New("验证码错误")}
+var SESSION_EXPIRED = CodeMsg{0, "会话已过期，请刷新页面重试", errors.New("会话已过期，请刷新页面重试")}
+var USER_SESSION_EXPIRED = CodeMsg{0, "还未登录或会话失效，请重新登录！", errors.New("还未登录或会话失效，请重新登录！")}
+
+//用户管理类错误
+var USERNAME_EMPTY = CodeMsg{-10, "用户名不能为空", errors.New("用户名不能为空")}
+var PASSWORD_EMPTY = CodeMsg{-10, "密码不能为空", errors.New("密码不能为空")}
+var USERNAME_EXIST = CodeMsg{-10, "用户已经存在了", errors.New("用户已经存在了")}
+var USERNAME_NO_EXIST = CodeMsg{-10, "该用户名不存在", errors.New("该用户名不存在")}
+var PASSWORD_ERROR = CodeMsg{-10, "用户名或密码错误", errors.New("用户名或密码错误")}

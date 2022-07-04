@@ -3,6 +3,7 @@ package routes
 import (
 	"gin_web/controller"
 	"gin_web/logger"
+	"gin_web/tool"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -21,5 +22,10 @@ func Setup(mode string) *gin.Engine {
 
 	r.POST("/login", controller.UserLogin)
 	r.POST("/signup", controller.UserSignUp)
+	r.GET("/ping", tool.JWTAuthMiddleware(), func(c *gin.Context) {
+
+		c.String(http.StatusOK, "pang")
+	})
+
 	return r
 }
