@@ -21,12 +21,10 @@ func Setup(mode string) *gin.Engine {
 	})
 
 	r.POST("/login", controller.UserLogin)
+	r.POST("/loginout", controller.UserLoginOut)
 	r.POST("/signup", controller.UserSignUp)
-	r.GET("/ping", tool.JWTAuthMiddleware(), func(c *gin.Context) {
-		//测试
-		//adwwdadawfawf1112121
-		c.String(http.StatusOK, "pang")
-	})
-
+	r.Use(tool.VerifyToken()) //认证中间件
+	r.GET("/communityList", controller.GetCommunityList)
+	r.GET("/community/:id", controller.GetIntroductionById)
 	return r
 }

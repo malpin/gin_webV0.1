@@ -9,17 +9,18 @@ import (
 var Conf = new(AppConfig) //返回的值是一个指向该类型新分配的零值的指针
 
 type AppConfig struct {
-	Name         string `mapstructure:"name"`
-	Mode         string `mapstructure:"mode"`
-	Version      string `mapstructure:"version"`
-	Port         int    `mapstructure:"port"`
-	StartTime    string `mapstructure:"start_time"`
-	MachineID    int64  `mapstructure:"machineID"`
-	MD5salt      string `mapstructure:"MD5salt"`
-	MySigningKey string `mapstructure:"mySigningKey"`
-	*LogConfig   `mapstructure:"log"`
-	*MysqlConfig `mapstructure:"mysql"`
-	*RedisConfig `mapstructure:"redis"`
+	Name          string `mapstructure:"name"`
+	Mode          string `mapstructure:"mode"`
+	Version       string `mapstructure:"version"`
+	Port          int    `mapstructure:"port"`
+	StartTime     string `mapstructure:"start_time"`
+	MachineID     int64  `mapstructure:"machineID"`
+	MD5salt       string `mapstructure:"MD5salt"`
+	MySigningKey  string `mapstructure:"mySigningKey"`
+	ContextUserID string `mapstructure:"contextUserID"`
+	*LogConfig    `mapstructure:"log"`
+	*MysqlConfig  `mapstructure:"mysql"`
+	*RedisConfig  `mapstructure:"redis"`
 }
 type LogConfig struct {
 	Level      string `mapstructure:"level"`
@@ -72,13 +73,19 @@ func Init(path string) (err error) {
 	if err := viper.Unmarshal(Conf); err != nil {
 		fmt.Printf("viper.Unmarshal failed,err:", err)
 	}
-	//监控文件
+	//监控配置文件变化
 	viper.WatchConfig()
-	viper.OnConfigChange(func(in fsnotify.Event) {
-		fmt.Printf("配置文件修改了")
+	//当配置变化之后调用的一个回调函数
+	viper.OnConfigChange(func(e fsnotify.Event) {
+		// 配置文件发生变更之后会调用的回调函数
+		fmt.Println("配置文件发生变更:", e.Name)
+		//将新的配置文件序列化到Conf
 		if err := viper.Unmarshal(Conf); err != nil {
-			fmt.Printf("viper.Unmarshal err:", err)
+			//反序列化配置信息失败
+			fmt.Sprintf("viper.Unmarshal(Conf),将新的配置文件序列化到Conf失败,ERROR:%v\n", err)
 		}
+		fmt.Println(Conf)
 	})
+
 	return
 }

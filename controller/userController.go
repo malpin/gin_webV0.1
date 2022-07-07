@@ -64,6 +64,10 @@ func UserLogin(c *gin.Context) {
 		Bean.Error(c, Bean.DATA_ERROR)
 		return
 	}
+	/*                   todo
+	获取客户端ip 把IP加到redis 每次登录+1
+	执行其他需要登录的操作时获取当前IP和常用ip是否一样,一样的话就延长token的时间
+	*/
 	//业务处理
 	user, err := service.Login(&p)
 	if err != nil || user.UserToken == "" {
@@ -78,4 +82,9 @@ func UserLogin(c *gin.Context) {
 	}
 
 	Bean.Success(c, user)
+}
+
+//退出登录
+func UserLoginOut(c *gin.Context) {
+	//把redis里的token删除
 }

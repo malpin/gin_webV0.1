@@ -11,8 +11,8 @@ import (
 
 // AddUser 添加用户
 func AddUser(user *model.User) (int64, error) {
-	sql := "insert into user(user_id,username,password,create_time,update_time) values(?,?,?,?,?)"
-	result, err := mysql.MysqlDB.Exec(sql, user.UserId, user.Username, user.Password, user.CreateTime, user.UpdateTime)
+	sqlStr := "insert into user(user_id,username,password,create_time,update_time) values(?,?,?,?,?)"
+	result, err := mysql.MysqlDB.Exec(sqlStr, user.UserId, user.Username, user.Password, user.CreateTime, user.UpdateTime)
 	if err != nil {
 		zap.L().Warn("userDao AddUser 添加用户执行 失败了", zap.Error(err))
 		return -1, err
@@ -29,8 +29,8 @@ func AddUser(user *model.User) (int64, error) {
 
 // login 用户登录
 func Login(u *model.User) (user model.User, err error) {
-	sql := "select user_id,username,password from user where username=?"
-	err = mysql.MysqlDB.Get(&user, sql, u.Username)
+	sqlStr := "select user_id,username,password from user where username=?"
+	err = mysql.MysqlDB.Get(&user, sqlStr, u.Username)
 	if err != nil {
 		zap.L().Warn(fmt.Sprintf("用户id:%d 的用户 在%s时登录 查询数据库失败了", u.UserId, time.Now()), zap.Error(err))
 		user.Password = ""
@@ -58,9 +58,9 @@ func UpdateUser() {
 
 // FandUserByName 根据用户名查找用户是否存在
 func FandUserByName(username string) error {
-	sql := "select count(user_id) from user  where username = ?"
+	sqlStr := "select count(user_id) from user  where username = ?"
 	var count int
-	err := mysql.MysqlDB.Get(&count, sql, username)
+	err := mysql.MysqlDB.Get(&count, sqlStr, username)
 	if err != nil {
 		zap.L().Error("userDao FandUserByName 根据用户名查找用户是否存在 查询失败", zap.Error(err))
 		return err

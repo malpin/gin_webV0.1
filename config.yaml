@@ -6,6 +6,8 @@ machineID: 1
 MD5salt: "malpin"
 mode: "dev"
 mySigningKey: "malpin"
+contextUserID: "userID"
+
 log:
   level: "debug"
   filename: "gin_webapp.log"
