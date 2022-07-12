@@ -14,8 +14,7 @@ import (
 var redisdb *redis.Client
 
 func Init(config *settings.RedisConfig) (err error) {
-	ctx, cancelFunc := context.WithTimeout(context.Background(), 5000*time.Second)
-
+	var ctx, cancelFunc = context.WithTimeout(context.Background(), 5000*time.Second)
 	defer cancelFunc()
 	redisdb = redis.NewClient(&redis.Options{
 		Addr: fmt.Sprintf(

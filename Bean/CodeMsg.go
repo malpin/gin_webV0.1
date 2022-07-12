@@ -20,6 +20,9 @@ var CPACHA_ERROR = CodeMsg{1003, "验证码错误", errors.New("验证码错误"
 var SESSION_EXPIRED = CodeMsg{1004, "会话已过期，请重新登录", errors.New("会话已过期，请刷新页面重试")}
 var USER_SESSION_EXPIRED = CodeMsg{1005, "还未登录或会话失效，请重新登录！", errors.New("还未登录或会话失效，请重新登录！")}
 var COMMUNITY_ID_ERROR = CodeMsg{1006, "社区的id错误", errors.New("社区的id错误")}
+var POST_ID_ERROR = CodeMsg{1007, "帖子的id错误", errors.New("帖子的id错误")}
+var VOTE_TIME_EXPIRED = CodeMsg{1008, "投票时间已过", errors.New("投票时间已过")}
+var ERR_VOTE_REPEATED = CodeMsg{1008, "不允许重复投票", errors.New("不允许重复投票")}
 
 //用户管理类错误
 var USERNAME_EMPTY = CodeMsg{2000, "用户名不能为空", errors.New("用户名不能为空")}

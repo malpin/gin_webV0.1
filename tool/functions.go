@@ -30,7 +30,7 @@ type MyClaims struct {
 }
 
 // jwt token 过期时间
-const AccessTokenExpireDuration = time.Hour * 2    //短时间token
+const AccessTokenExpireDuration = time.Hour * 20   //短时间token
 const RefreshTokenExpireDuration = time.Hour * 168 //长时间token
 
 // token签名密钥

@@ -15,7 +15,7 @@ func GetCommunityList() (communityList []model.Community, err error) {
 }
 
 // GetIntroductionById 根据id查找社区详情
-func GetIntroductionById(communityID int) (community model.Community, err error) {
+func GetIntroductionById(communityID int) (community *model.Community, err error) {
 	community, err = communityDao.GetIntroductionById(communityID)
 	if err != nil {
 		return community, err

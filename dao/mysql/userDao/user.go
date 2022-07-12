@@ -72,8 +72,15 @@ func FandUserByName(username string) error {
 }
 
 //根据id查找用户
-func FindUserById() {
-
+func FindUserById(id int64) (user *model.User, err error) {
+	user = new(model.User)
+	sqlStr := "select user_id,username from user  where user_id = ?"
+	err = mysql.MysqlDB.Get(user, sqlStr, id)
+	if err != nil {
+		zap.L().Error("userDao FandUserByName 根据ID查找用户是否存在 查询失败", zap.Error(err))
+		return
+	}
+	return
 }
 
 //查询所有用户信息
